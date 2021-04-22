@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>TaiwanNo1.Validation</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>mijimc</Authors>
+    <Company>Doutify Inc.</Company>
   </PropertyGroup>
 
 </Project>
