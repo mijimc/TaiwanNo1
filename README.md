@@ -13,14 +13,14 @@ using TaiwanNo1.Validation;
 "A100000001".IsTwIdValid(); // Ture
 
 // 新式台灣外來人口統一證號（居留證號）
-"A800000005".IsTwIdValid(); // Ture
-"A900000007".IsTwIdValid(); // Ture
+"A800000005".IsRcIdValid(); // Ture
+"A900000007".IsRcIdValid(); // Ture
 
-// 新舊式台灣外來人口統一證號（居留證號）
-"AA00000009".IsTwIdValid(true); // Ture
-"AB00000001".IsTwIdValid(true); // Ture
-"AC00000003".IsTwIdValid(true); // Ture
-"AD00000005".IsTwIdValid(true); // Ture
+// 新 + 舊式台灣外來人口統一證號（居留證號）
+"AA00000009".IsRcIdValid(true); // Ture
+"AB00000001".IsRcIdValid(true); // Ture
+"AC00000003".IsRcIdValid(true); // Ture
+"AD00000005".IsRcIdValid(true); // Ture
 ```
 
 Happy coding !! 😉
