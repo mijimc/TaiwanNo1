@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace TaiwanNo1.Validation
@@ -92,6 +94,53 @@ namespace TaiwanNo1.Validation
                 isValid = false;
 
             return isValid;
+        }
+
+        /// <summary>
+        /// Verify that the input string is a valid ROC (Taiwan) Tax ID Number.
+        /// </summary>
+        /// <param name="taxId">Input string.</param>
+        /// <returns>Whether it is a valid Tax ID Number.</returns>
+        public static bool IsTwTaxIdVaild(this string taxId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(taxId))
+                {
+                    return false;
+                }
+
+                Regex regex = new Regex(@"^\d{8}$");
+                if (!regex.Match(taxId).Success)
+                {
+                    return false;
+                }
+
+                int[] idNoArray = taxId.ToCharArray().Select(c => Convert.ToInt32(c.ToString())).ToArray();
+                // 邏輯乘數
+                int[] weight = new int[] { 1, 2, 1, 2, 1, 2, 4, 1 };
+
+                int sum = 0;    // 總和
+                int sumFor7 = 1;
+                for (int i = 0; i < idNoArray.Length; i++)
+                {
+                    int subSum = idNoArray[i] * weight[i];
+                    // 乘積是兩位數的要將兩位數相加
+                    sum += (subSum / 10)   // 商數
+                         + (subSum % 10);  // 餘數                
+                }
+                if (idNoArray[6] == 7)
+                {
+                    // 若第7碼 = 7，則會出現兩種數值都算對，因此要特別處理。
+                    sumFor7 = sum + 1;
+                }
+                // 舊式 10 ，新式 5，統一採用新式
+                return (sum % 5 == 0) || (sumFor7 % 5 == 0);
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         /// <summary>

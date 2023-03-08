@@ -21,6 +21,11 @@ using TaiwanNo1.Validation;
 "AB00000001".IsTwRcValid(true); // Ture
 "AC00000003".IsTwRcValid(true); // Ture
 "AD00000005".IsTwRcValid(true); // Ture
+
+// 新式統一編號驗證
+"22099131".IsTwTaxIdVaild(true); // Ture
+"16003518".IsTwTaxIdVaild(true); // Ture
+"96979933".IsTwTaxIdVaild(true); // Ture
 ```
 
 Happy coding !! 😉
