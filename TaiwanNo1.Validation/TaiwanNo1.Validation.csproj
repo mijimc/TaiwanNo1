@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>TaiwanNo1.Validation</PackageId>
-    <Version>1.0.1</Version>
-    <description>提供兩個 String 的擴充方法驗證台灣身分證字號及新舊式台灣外來人口統一證號（居留證號）。</description>
+    <Version>1.1.0</Version>
+    <description>驗證台灣身分證字號、新舊式台灣外來人口統一證號（居留證號）和新式統一編號。</description>
     <Authors>mijimc</Authors>
     <Company>Doutify Inc.</Company>
     <RepositoryUrl>https://github.com/mijimc/TaiwanNo1</RepositoryUrl>
